@@ -1189,8 +1189,8 @@ bool InputDispatcher::dispatchKeyLocked(nsecs_t currentTime, KeyEntry* entry,
     // Give the policy a chance to intercept the key.
     if (entry->interceptKeyResult == KeyEntry::INTERCEPT_KEY_RESULT_UNKNOWN) {
         if (entry->policyFlags & POLICY_FLAG_PASS_TO_USER) {
-            // Key from FOD
-            if(entry->keyCode == 0 && entry->scanCode == 338){
+            // Key from fingerprint sensor
+            if(entry->keyCode == 0 && (entry->scanCode == 338 || entry->scanCode == 96)){
                 entry->interceptKeyResult = KeyEntry::INTERCEPT_KEY_RESULT_SKIP;
                 *dropReason = DropReason::POLICY;
                 ALOGI("Key from FOD");
