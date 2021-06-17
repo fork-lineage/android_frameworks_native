@@ -121,11 +121,6 @@ cc_defaults {
         export_aidl_headers: true,
     },
 
-    pgo: {
-        sampling: true,
-        profile_file: "libgui/libgui.profdata",
-    },
-
     lto: {
         thin: true,
     },
